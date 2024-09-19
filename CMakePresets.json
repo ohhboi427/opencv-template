@@ -1,0 +1,42 @@
+{
+	"version": 3,
+	"configurePresets": [
+		{
+			"name": "windows-base",
+			"hidden": true,
+			"generator": "Ninja",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"architecture": {
+				"value": "x64",
+				"strategy": "external"
+			},
+			"binaryDir": "${sourceDir}/out/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+				"CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "out/build/${presetName}",
+				"CMAKE_LIBRARY_OUTPUT_DIRECTORY": "out/build/${presetName}",
+				"CMAKE_RUNTIME_OUTPUT_DIRECTORY": "out/build/${presetName}"
+			}
+		},
+		{
+			"name": "debug",
+			"displayName": "Debug",
+			"inherits": "windows-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+		{
+			"name": "release",
+			"displayName": "Release",
+			"inherits": "windows-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		}
+	]
+}

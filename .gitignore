@@ -1,0 +1,9 @@
+# Binaries
+out/
+
+# Visual Studio (Code)
+.vs/
+.vscode/
+
+# CLion
+.idea/

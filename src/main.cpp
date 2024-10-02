@@ -1,6 +1,4 @@
-#include <opencv2/core.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/highgui.hpp>
+#include <opencv2/opencv.hpp>
 
 #include <string_view>
 
@@ -19,9 +17,9 @@ auto main() -> int
 	bool running = true;
 	while(running)
 	{
-		cv::pollKey();
+		const int key = cv::pollKey();
 
-		if(cv::getWindowProperty(TITLE.data(), cv::WND_PROP_VISIBLE) < 1.0)
+		if(key == 27)
 		{
 			running = false;
 		}

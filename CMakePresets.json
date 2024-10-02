@@ -16,10 +16,12 @@
 			},
 			"binaryDir": "${sourceDir}/out/build/${presetName}",
 			"cacheVariables": {
+				"CMAKE_C_COMPILER": "cl",
+				"CMAKE_CXX_COMPILER": "cl",
 				"CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-				"CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "out/build/${presetName}",
-				"CMAKE_LIBRARY_OUTPUT_DIRECTORY": "out/build/${presetName}",
-				"CMAKE_RUNTIME_OUTPUT_DIRECTORY": "out/build/${presetName}"
+				"CMAKE_RUNTIME_OUTPUT_DIRECTORY": "bin",
+				"CMAKE_LIBRARY_OUTPUT_DIRECTORY": "lib",
+				"CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "lib"
 			}
 		},
 		{

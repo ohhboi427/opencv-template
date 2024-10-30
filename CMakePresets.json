@@ -25,7 +25,29 @@
 			}
 		},
 		{
-			"name": "debug",
+			"name": "mac-base",
+			"hidden": true,
+			"generator": "Ninja",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Darwin"
+			},
+			"architecture": {
+				"value": "x64",
+				"strategy": "external"
+			},
+			"binaryDir": "${sourceDir}/out/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "clang",
+				"CMAKE_CXX_COMPILER": "clang++",
+				"CMAKE_RUNTIME_OUTPUT_DIRECTORY": "bin",
+				"CMAKE_LIBRARY_OUTPUT_DIRECTORY": "lib",
+				"CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "lib"
+			}
+		},
+		{
+			"name": "win-debug",
 			"displayName": "Debug",
 			"inherits": "windows-base",
 			"cacheVariables": {
@@ -33,9 +55,25 @@
 			}
 		},
 		{
-			"name": "release",
+			"name": "win-release",
 			"displayName": "Release",
 			"inherits": "windows-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		},
+		{
+			"name": "mac-debug",
+			"displayName": "Debug",
+			"inherits": "mac-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+		{
+			"name": "mac-release",
+			"displayName": "Release",
+			"inherits": "mac-base",
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Release"
 			}
